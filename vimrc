@@ -77,15 +77,15 @@ call plug#begin('~/.local/share/vim/plugged')
   Plug 'timonv/vim-cargo'
   " Plug 'racer-rust/vim-racer'
 
-  " Automcomplete
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-
   " Typescript
   Plug 'Shougo/vimproc.vim', {'do' : 'make'}
   Plug 'leafgarland/typescript-vim'
 
   " Markdown Table
   Plug 'dhruvasagar/vim-table-mode'
+
+  " Use release branch
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 " Options available: rafi/awesome-vim-colorschemes
@@ -288,19 +288,6 @@ nnoremap + :vert res +10<CR>
 
 " Insert Date with CTRL+d in insert mode
 imap <C-d> <C-R>=strftime("%FT%T%z")<CR>
-
-" Deoplete Autocompletion
-let g:deoplete#enable_at_startup=1
-
-call deoplete#custom#option({
-\ 'auto_complete_delay': 200,
-\ 'refresh_always': v:true,
-\ })
-
-call deoplete#custom#option('omni_patterns', { 'go': '[^. *\t]\.\w*' })
-
-" Close preview window after completion
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | silent! pclose | endif
 
 " Delete whitespace
 func! DeleteTrailingWS()

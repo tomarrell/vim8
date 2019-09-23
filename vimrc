@@ -9,9 +9,6 @@ call plug#begin('~/.local/share/vim/plugged')
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
 
-  " Vim incsearch
-  Plug 'haya14busa/is.vim'
-
   " Async command runner
   " Look at https://github.com/skywind3000/asyncrun.vim
   Plug 'skywind3000/asyncrun.vim'
@@ -366,6 +363,8 @@ nnoremap gh :ALEHover<CR>
 " Set gr as ALEFindReferences
 nnoremap gr :ALEFindReferences<CR>
 
+set incsearch
+
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
@@ -381,3 +380,7 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
+
+" Cursorline
+set nocursorline
+hi CursorLine term=bold cterm=bold

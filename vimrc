@@ -249,8 +249,13 @@ nnoremap <SPACE>pf :FZF<CR>
 " Print current file path
 nnoremap <SPACE>pd :echo @%<CR>
 
-" Ag Quick bind
-nnoremap <SPACE>sp :Ag<CR>
+" Rg Quick bind
+nnoremap <SPACE>sp :Rg<CR>
+" you've got to really shave those milliseconds bro you've got to find a
+" comfortable binding for; :Rg <c-r><c-w><CR>
+vnoremap <SPACE>sp y:Rg <c-r>"<CR>
+
+command! -bang -nargs=* Rg call fzf#vim#grep('rg --line-number --hidden --no-heading --color=always --smart-case '.shellescape(<q-args>),1, fzf#vim#with_preview({'options': '--delimiter : --nth 3..'}), <bang>0)
 
 " Format JSON quickbind, first is for line, second for file
 nnoremap <SPACE>fj :.!python -m json.tool<CR>

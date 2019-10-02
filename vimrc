@@ -245,6 +245,7 @@ nnoremap <SPACE>cc :ccl<CR>:pc<CR>:lclose<CR>
 map <SPACE>jj :call VrcQuery()<CR>
 
 " FZF Quick bind
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 nnoremap <SPACE>pf :FZF<CR>
 " Print current file path
 nnoremap <SPACE>pd :echo @%<CR>
